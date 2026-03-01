@@ -829,6 +829,19 @@
 
         // Init
         fetchMenuData();
+        <!-- كود تسجيل مشغل الخدمات Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+              console.log('تم تشغيل ServiceWorker بنجاح', registration.scope);
+            })
+            .catch(err => {
+              console.log('فشل تشغيل ServiceWorker: ', err);
+            });
+        });
+      }
     </script>
 </body>
 </html>
